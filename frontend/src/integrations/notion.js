@@ -5,7 +5,7 @@ import {
     CircularProgress
 } from '@mui/material';
 import axios from 'axios';
-import { useNotifier } from '../notifications/NotificationContext'; // 1. Import the notifier hook
+import { useNotifier } from '../notifications/NotificationContext'; 
 
 export const NotionIntegration = ({ user, org, integrationParams, setIntegrationParams }) => {
     const [isConnected, setIsConnected] = useState(false);
@@ -26,14 +26,13 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
 
             // Polling for the window to close
             const pollTimer = window.setInterval(() => {
-                [cite_start]if (newWindow?.closed !== false) { // [cite: 105]
+                if (newWindow?.closed !== false) {
                     window.clearInterval(pollTimer);
                     handleWindowClosed();
                 }
-            }, 200); [cite_start]// [cite: 106]
+            }, 200); 
         } catch (e) {
             setIsConnecting(false);
-            // 3. Replace alert with notify for error messages
             notify(e?.response?.data?.detail || 'An error occurred during authorization.', 'error');
         }
     }
@@ -55,8 +54,7 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
             }
         } catch (e) {
             setIsConnecting(false);
-            // 5. Replace alert with notify for error messages
-            notify(e?.response?.data?.detail || 'Failed to retrieve Notion credentials.', 'error'); [cite_start]// [cite: 108]
+            notify(e?.response?.data?.detail || 'Failed to retrieve Notion credentials.', 'error');
         }
     }
 
@@ -73,20 +71,20 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
         <Box sx={{ mt: 2, textAlign: 'center' }}>
             <Button
                 variant='contained'
-                [cite_start]onClick={isConnected ? () => {} : handleConnectClick} // [cite: 110]
+                onClick={isConnected ? () => {} : handleConnectClick}
                 color={isConnected ? 'success' : 'primary'}
                 disabled={isConnecting}
                  sx={{
                     minWidth: 220,
-                    pointerEvents: isConnected ? [cite_start]'none' : 'auto', // [cite: 111]
+                    pointerEvents: isConnected ? 'none' : 'auto', 
                     cursor: isConnected ? 'default' : 'pointer',
-                    opacity: isConnected ? [cite_start]1 : undefined, // [cite: 112]
+                    opacity: isConnected ? [cite_start]1 : undefined,
                 }}
             >
                 {isConnecting 
                     ? <CircularProgress size={24} color="inherit" /> 
                     : isConnected 
-                    ? [cite_start]'Notion Connected' // [cite: 113]
+                    ? 'Notion Connected'
                     : 'Connect to Notion'}
             </Button>
         </Box>
