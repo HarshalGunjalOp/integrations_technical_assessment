@@ -15,7 +15,7 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
     // Function to open OAuth in a new window
     const handleConnectClick = async () => {
         try {
-            setIsConnecting(true); [cite_start]
+            setIsConnecting(true); 
             const formData = new FormData();
             formData.append('user_id', user);
             formData.append('org_id', org);
