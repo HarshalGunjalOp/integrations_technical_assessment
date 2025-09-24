@@ -15,7 +15,7 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
     // Function to open OAuth in a new window
     const handleConnectClick = async () => {
         try {
-            setIsConnecting(true); [cite_start]// [cite: 104]
+            setIsConnecting(true); [cite_start]
             const formData = new FormData();
             formData.append('user_id', user);
             formData.append('org_id', org);
@@ -40,7 +40,7 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
     // Function to handle logic when the OAuth window closes
     const handleWindowClosed = async () => {
         try {
-            const formData = new FormData(); [cite_start]// [cite: 107]
+            const formData = new FormData(); 
             formData.append('user_id', user);
             formData.append('org_id', org);
             const response = await axios.post(`http://localhost:8000/integrations/notion/credentials`, formData);
@@ -78,7 +78,7 @@ export const NotionIntegration = ({ user, org, integrationParams, setIntegration
                     minWidth: 220,
                     pointerEvents: isConnected ? 'none' : 'auto', 
                     cursor: isConnected ? 'default' : 'pointer',
-                    opacity: isConnected ? [cite_start]1 : undefined,
+                    opacity: isConnected ? 1 : undefined,
                 }}
             >
                 {isConnecting 
